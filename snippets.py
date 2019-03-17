@@ -94,7 +94,7 @@ def loadPrior(s='small'):
     tempOpen=openCity('totCountry.',s,totalC,country,'c')
     country=tempOpen[0]
     totalC=tempOpen[0]
-
+    return(cCity,cTotal,sCity,sTotal,state,totalS,country,totalC)
 def isValid(L):
     flag=[0,0,0]
     if L[0]=="" and L[1]=="":
