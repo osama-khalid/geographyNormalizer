@@ -1,0 +1,489 @@
+andorra|9
+AN|0
+united arab emirates|14
+AE|0
+afghanistan|363
+AF|0
+antigua and barbuda|0
+AC|0
+anguilla|2
+AV|0
+albania|128
+AL|0
+armenia|70
+AM|0
+angola|21
+AO|0
+antarctica|52
+AY|0
+argentina|352
+AR|0
+american samoa|4
+AQ|0
+austria|353
+AU|0
+australia|2040
+AS|0
+aruba|7
+AA|0
+sweden|3421
+SW|0
+azerbaijan|27
+AJ|0
+bosnia and herzegovina|6
+BK|0
+barbados|7
+BB|0
+bangladesh|60
+BG|0
+belgium|455
+BE|0
+burkina faso|3
+UV|0
+bulgaria|232
+BU|0
+bahrain|61
+BA|0
+burundi|0
+BY|0
+benin|10
+BN|0
+saint barthelemy|0
+TB|0
+bermuda|18
+BD|0
+brunei|6
+BX|0
+bolivia|30
+BL|0
+brazil|893
+BR|0
+bahamas, the|0
+BF|0
+bhutan|10
+BT|0
+botswana|15
+BC|0
+belarus|72
+BO|0
+belize|13
+BH|0
+canada|3689
+CA|0
+cocos (keeling) islands|0
+CK|0
+congo, democratic republic of the|0
+CG|0
+central african republic|1
+CT|0
+congo, republic of the|0
+CF|0
+switzerland|435
+SZ|0
+cote d'ivoire|0
+IV|0
+cook islands|5
+CW|0
+chile|180
+CI|0
+cameroon|4
+CM|0
+china|3281
+CH|0
+colombia|51
+CO|0
+costa rica|15
+CS|0
+cuba|154
+CU|0
+cape verde|1
+CV|0
+curacao|0
+UC|0
+christmas island|13
+KT|0
+cyprus|76
+CY|0
+czech republic|102
+EZ|0
+germany|9197
+GM|0
+djibouti|5
+DJ|0
+denmark|508
+DA|0
+dominica|1
+DO|0
+dominican republic|26
+DR|0
+algeria|86
+AG|0
+ecuador|39
+EC|0
+estonia|175
+EN|0
+egypt|568
+EG|0
+western sahara|7
+WI|0
+eritrea|36
+ER|0
+spain|849
+SP|0
+ethiopia|74
+ET|0
+finland|640
+FI|0
+fiji|9
+FJ|0
+falkland islands (islas malvinas)|0
+FK|0
+micronesia, federated states of|0
+FM|0
+faroe islands|17
+FO|0
+france|2017
+FR|0
+gabon|3
+GB|0
+united kingdom|69
+UK|0
+grenada|3
+GJ|0
+georgia|192
+GG|0
+french guiana|5
+FG|0
+guernsey|2
+GK|0
+ghana|22
+GH|0
+gibraltar|25
+GI|0
+greenland|120
+GL|0
+gambia, the|0
+GA|0
+guinea|66
+GV|0
+guadeloupe|2
+GP|0
+equatorial guinea|7
+EK|0
+greece|780
+GR|0
+south georgia and the islands|0
+SX|0
+guatemala|37
+GT|0
+guam|32
+GQ|0
+guinea-bissau|0
+PU|0
+guyana|13
+GY|0
+hong kong|112
+HK|0
+honduras|40
+HO|0
+croatia|200
+HR|0
+haiti|119
+HA|0
+hungary|465
+HU|0
+indonesia|131
+ID|0
+ireland|716
+EI|0
+israel|3358
+IS|0
+isle of man|10
+IM|0
+india|1431
+IN|0
+british indian ocean territory|0
+IO|0
+iraq|928
+IZ|0
+iran|1761
+IR|0
+iceland|221
+IC|0
+italy|819
+IT|0
+jersey|208
+JE|0
+jamaica|32
+JM|0
+jordan|127
+JO|0
+japan|1630
+JA|0
+|0
+kenya|48
+KE|0
+kyrgyzstan|11
+KG|0
+cambodia|30
+CB|0
+kiribati|5
+KR|0
+comoros|1
+CN|0
+saint kitts and nevis|0
+SC|0
+korea, north|0
+KN|0
+korea, south|0
+KS|0
+kuwait|59
+KU|0
+cayman islands|10
+CJ|0
+kazakhstan|34
+KZ|0
+laos|6
+LA|0
+lebanon|291
+LE|0
+saint lucia|0
+ST|0
+liechtenstein|10
+LS|0
+sri lanka|19
+CE|0
+liberia|60
+LI|0
+lesotho|11
+LT|0
+lithuania|121
+LH|0
+luxembourg|47
+LU|0
+latvia|130
+LG|0
+libya|201
+LY|0
+morocco|140
+MO|0
+monaco|28
+MN|0
+moldova, republic of|0
+MD|0
+montenegro|42
+MJ|0
+saint martin|0
+RN|0
+madagascar|31
+MA|0
+marshall islands|2
+RM|0
+the former yugoslav republic of macedonia|0
+MK|0
+mali|40
+ML|0
+myanmar|15
+BM|0
+mongolia|69
+MG|0
+macau|8
+MC|0
+northern mariana islands|1
+CQ|0
+martinique|2
+MB|0
+mauritania|5
+MR|0
+montserrat|0
+MH|0
+malta|35
+MT|0
+mauritius|4
+MP|0
+maldives|0
+MV|0
+malawi|14
+MI|0
+mexico|2153
+MX|0
+malaysia|126
+MY|0
+mozambique|7
+MZ|0
+namibia|20
+WA|0
+new caledonia|3
+NC|0
+niger|28
+NG|0
+norfolk island|1
+NF|0
+nigeria|93
+NI|0
+nicaragua|15
+NU|0
+netherlands|457
+NL|0
+norway|726
+NO|0
+nepal|28
+NP|0
+nauru|10
+NR|0
+niue|10
+NE|0
+new zealand|243
+NZ|0
+oman|37
+MU|0
+panama|51
+PM|0
+peru|98
+PE|0
+french polynesia|4
+FP|0
+papua new guinea|13
+PP|0
+philippines|126
+RP|0
+pakistan|342
+PK|0
+poland|2230
+PL|0
+saint pierre and miquelon|0
+SB|0
+pitcairn islands|4
+PC|0
+puerto rico|74
+RQ|0
+palestine, state of|0
+WE|0
+portugal|289
+PO|0
+palau|1
+PS|0
+paraguay|29
+PA|0
+qatar|105
+QA|0
+reunion|28
+RE|0
+romania|453
+RO|0
+serbia|468
+RI|0
+russia|3805
+RS|0
+rwanda|14
+RW|0
+saudi arabia|909
+SA|0
+solomon islands|0
+BP|0
+seychelles|8
+SE|0
+sudan|59
+SU|0
+singapore|177
+SN|0
+saint helena|2
+SH|0
+slovenia|153
+SI|0
+svalbard|25
+SV|0
+slovakia|144
+LO|0
+sierra leone|10
+SL|0
+san marino|25
+SM|0
+senegal|6
+SG|0
+somalia|183
+SO|0
+suriname|2
+NS|0
+south sudan|5
+OD|0
+sao tome and principe|0
+TP|0
+el salvador|28
+ES|0
+sint maarten|0
+NN|0
+syrian arab republic|0
+SY|0
+swaziland|4
+WZ|0
+turks and caicos islands|0
+TK|0
+chad|271
+CD|0
+french southern and antarctic lands|0
+FS|0
+togo|5
+TO|0
+thailand|131
+TH|0
+tajikistan|6
+TI|0
+tokelau|2
+TL|0
+east timor|9
+TT|0
+turkmenistan|14
+TX|0
+tunisia|61
+TS|0
+tonga|5
+TN|0
+turkey|1253
+TU|0
+trinidad and tobago|2
+TD|0
+tuvalu|4
+TV|0
+taiwan|83
+TW|0
+tanzania, united republic of|0
+TZ|0
+ukraine|658
+UP|0
+uganda|35
+UG|0
+united states of america|0
+US|0
+uruguay|56
+UY|0
+uzbekistan|12
+UZ|0
+holy see (vatican city)|0
+VT|0
+saint vincent and the grenadines|0
+VC|0
+venezuela|77
+VE|0
+british virgin islands|0
+VI|0
+virgin islands (us)|0
+VQ|0
+vietnam|355
+VM|0
+vanuatu|2
+NH|0
+wallis and futuna|0
+WF|0
+samoa|10
+WS|0
+yemen|184
+YM|0
+mayotte|0
+MF|0
+south africa|356
+SF|0
+zambia|8
+ZA|0
+zimbabwe|77
+ZI|0
