@@ -154,7 +154,7 @@ class geoExtract(object):
         return(stateDeAbbr,stateAbbr,cityInState,stateHasCity)
         
         
-    def loadPrior(self,s='small'):
+    def loadPrior(self,s='big'):
         cityNCountry={}
         totalCityNCountry=0
         cityNState={}
@@ -202,7 +202,7 @@ class geoExtract(object):
                 if row[0] not in c:
                     c[row[0]]={}
                 if row[1] not in c[row[0]]:
-                    c[row[0]][row[1]]=0
+                    c[row[0]][row[1]]=1
                 if int(row[2])>-1:    
                     c[row[0]][row[1]]=c[row[0]][row[1]]+int(row[2])
                     t=t+int(row[2])
@@ -226,7 +226,7 @@ class geoExtract(object):
                 if row[0] in variable:
                     row[0]=variable[row[0]]
                 if row[0] not in n:
-                    n[row[0]]=0
+                    n[row[0]]=1
                 if int(row[1])>-1:
                     n[row[0]]=n[row[0]]+int(row[1])
                     t=t+int(row[1])
@@ -274,53 +274,68 @@ class textExtract:
             for item in textItem:
                 if item in geo.stateDeAbbr:
                     
-                    state.append([item,float(geo.aggState[geo.stateDeAbbr[item]])/float(geo.totalState)])
+                    state.append([item,float(1)])
+                    country.append(['united states',float(0.5)])
                 if item.lower() in geo.stateAbbr:
                     
-                    state.append([geo.stateAbbr[item.lower()],float(geo.aggState[item.lower()])/float(geo.totalState)])
-                
+                    state.append([geo.stateAbbr[item.lower()],float(0.5)])
+                    country.append(['united states',float(0.5)])
                 
                 if item in geo.iso2DeAbbr:
                     cand=geo.iso2DeAbbr[item]
                       
-                    country.append([cand,float(geo.aggCountry[geo.fipAbbr[cand]])/float(geo.totalCountry)])
+                    country.append([cand,float(1)])
                     
                 if item in geo.iso3DeAbbr:
                     cand=geo.iso3DeAbbr[item]
                       
-                    country.append([cand,float(geo.aggCountry[geo.fipAbbr[cand]])/float(geo.totalCountry)])
+                    country.append([cand,float(1)])
               #              
                 if item in geo.fipDeAbbr:
-                    country.append([geo.fipDeAbbr[item],float(geo.aggCountry[item])/float(geo.totalCountry)])
+                    country.append([geo.fipDeAbbr[item],float(1)])
                             
                 if item.lower() in geo.fipAbbr:
                     
                     c = geo.fipAbbr[item.lower()]
-                    country.append([geo.fipDeAbbr[c],float(geo.aggCountry[c])/float(geo.totalCountry)])
+                    country.append([geo.fipDeAbbr[c],float(1)])
                 
                         
                 if item.lower() in geo.MLCountry:
                 
                     c=geo.fipDeAbbr[geo.MLCountry[item.lower()]]
-                    country.append([c,float(geo.aggCountry[geo.fipAbbr[c]])/float(geo.totalCountry)])
+                    country.append([c,float(1)])
                     
             
                 if item.lower() in geo.cityInState:
-                    if wf(item.lower(),'en')>0:
-                        
-                        city.append([item.lower(),wf(item.lower(),'en')])
+                    city.append([item.lower(),float(1)])
+                    s={}
+                    t=0
                     for i in geo.cityInState[item.lower()]:
-                        state.append([i,float(geo.cityNState[i][item.lower()])/float(geo.totalCityNState)])                        
+                        s[i]=float(geo.cityNState[i][item.lower()])
+                        t=t+float(geo.cityNState[i][item.lower()])
+                    for i in geo.cityInState[item.lower()]:
+                        state.append([i,s[i]/t])
+                    
+                    country.append(['united states',float(0.5)])    
+                        
+                    #state.append([i,/float(geo.totalCityNState)])                        
                         
                         
                 if item.lower() in geo.cityInFIP:
-                    if wf(item.lower(),'en')>0:
-                        city.append([item.lower(),wf(item.lower(),'en')])
-                        for i in geo.cityInFIP[item.lower()]:
-                            
-                            
-                            if i in geo.fipDeAbbr:
-                                country.append([geo.fipDeAbbr[i],math.log(1/wf(item.lower(),'en'))*float(geo.cityNCountry[i][item.lower()])/float(geo.totalCityNCountry)])
+                
+                    city.append([item.lower(),float(1)])
+                    c={}
+                    t=0
+                    for i in geo.cityInFIP[item.lower()]:
+                        
+                        if i in geo.fipDeAbbr:
+                            c[i]=float(geo.cityNCountry[i][item.lower()])
+                            t=t+float(geo.cityNCountry[i][item.lower()])
+                    
+                    for i in geo.cityInFIP[item.lower()]:
+                       if i in geo.fipDeAbbr:                            
+                            country.append([geo.fipDeAbbr[i],c[i]/t])
+        
         candidateCity={}
         candidateState={}
         candidateCountry={}
@@ -338,80 +353,52 @@ class textExtract:
             if c[0] not in candidateCountry:
                 candidateCountry[c[0]]=0
             candidateCountry[c[0]]=candidateCountry[c[0]]+c[1]
-            
-        print(self.candidateResolution(candidateCity,candidateState,candidateCountry))
+        #print(candidateCity,candidateState,candidateCountry)    
+        return(self.candidateResolution(candidateCity,candidateState,candidateCountry))
         
     
     def candidateResolution(self,city,state,country):
         
         candidateCity=""
         candidateState=""
-        if len(state)>0:
-            if len(country)==0:
-                country['united states']=1
-            stateSort=sorted(state.items(),key=operator.itemgetter(1),reverse=True)            
-            candidateState=stateSort[0][0]
-            
-            
-            
-        for c in country:
-            if len(state)==0:
-                if c == 'united states':
-                    country[c]=-1
-            else:
-                if c!='united states':
-                    country[c]=-1
-                    
-        
-        countrySort=sorted(country.items(),key=operator.itemgetter(1),reverse=True)    
-        
-        
-        
-        candidateCountry=countrySort[0][0]
-        c2={}
+        candidateCountry=""
+        if len(country)>0:
+            countrySort=sorted(country.items(),key=operator.itemgetter(1),reverse=True)    
+            candidateCountry=countrySort[0][0]
         if len(city)>0:
-            citySort=sorted(city.items(),key=operator.itemgetter(1),reverse=True)    
-            candidateCity=citySort[0][0]
             for c in city:
-                if c in self.geo.FIPhasCity[self.geo.fipAbbr[candidateCountry]]:
-                    c2[c]=city[c]
+                if c in self.geo.cityNCountry[self.geo.fipAbbr[candidateCountry]]:
                     
-        c3={}
-        
-        
-        
-        
-        if len(c2)>0 and candidateState !="":            
-            citySort=sorted(c2.items(),key=operator.itemgetter(1),reverse=True)    
+                    city[c]=city[c]*self.geo.cityNCountry[self.geo.fipAbbr[candidateCountry]][c]
+                    
+                else:
+                    city[c]=0
+            
+            citySort=sorted(city.items(),key=operator.itemgetter(1),reverse=True)
             candidateCity=citySort[0][0]
-
-            for c in c2:
-                if c in self.geo.cityInState:
-                    if candidateState in self.geo.cityInState[c] :
-                        c3[c]=c2[c]
-        if len(c3)>0:
-            
-            citySort=sorted(c3.items(),key=operator.itemgetter(1),reverse=True)    
-            candidateCity=citySort[0][0]
-            
+        #self.cityInFIP=loadCity[0]                          #Lahore->PK
+        #self.FIPhasCity=loadCity[1]                         #PK->Lahore
         
-        '''if len(city)>0:
-            citySort=sorted(city.items(),key=operator.itemgetter(1),reverse=True)    
-                
-            if 
-                candidateCity=citySort[0][0]
-            else:
-                candidateCity=""
         
-            
-        if candidateState !="" and candidateCity !="":
-            if candidateCity not in self.geo.cityInState[candidateState]:
-                candidateCity=""
-        '''       
-        if candidateState !="":
-            if candidateState not in self.geo.cityInState[candidateCity]:
-                candidateCity=""
+        if candidateCountry != 'united states':
+            candidateState=""    
+        if candidateCountry=='united states' and candidateCity =="":
+            stateSort=sorted(state.items(),key=operator.itemgetter(1),reverse=True)
+            candidateState=stateSort[0][0]
         
+        if candidateCountry =="united states" and candidateCity !="":
+            for s in state:
+                if candidateCity in self.geo.cityInState:
+                    if s in self.geo.cityInState[candidateCity]:
+                        state[s]=state[s]*self.geo.cityNState[s][candidateCity]
+                    else:
+                        state[s]=0
+                else:
+                    candidateCity=""
+            stateSort=sorted(state.items(),key=operator.itemgetter(1),reverse=True)
+            candidateState=stateSort[0][0]
+        if candidateCity == candidateCountry:
+            candidateCity=""
         
         return(candidateCity,candidateState,candidateCountry)
         
